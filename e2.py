@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 from selenium import webdriver
 
-#address to scrape
 addr = "http://historical.elections.virginia.gov/elections/search/year_from:1924/year_to:2016/office_id:1/stage:General"
 resp = requests.get(addr)
 html = resp.content
@@ -31,6 +30,7 @@ for l in range(0, len(electionID)):
     to_push = [year, electionID_id]
     electionID[l] = to_push
 
+# new code for 2: for loop over list to download .csv files for elections
 for m in range(0, len(electionID)):
     year = electionID[m][0]
     file = year +'.csv'
